@@ -22,11 +22,20 @@ private Integer count =10;
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        updateCounterText();
     }
 
     public void onClickBatton(View view){
         count++;
         TextView txt=findViewById(R.id.txtCounter);
+        txt.setText(count.toString());
+    }
+    public void oneClickBatton(View view){
+        count = 0;
+        updateCounterText();
+    }
+    private void updateCounterText() {
+        TextView txt = findViewById(R.id.txtCounter);
         txt.setText(count.toString());
     }
 }
