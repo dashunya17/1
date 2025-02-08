@@ -29,4 +29,10 @@ private Integer count =10;
         TextView txt=findViewById(R.id.txtCounter);
         txt.setText(count.toString());
     }
+
+    public void oneClickBatton(View view){
+        count = 0;
+        TextView txt=findViewById(R.id.txtCounter);
+        txt.setText(count.toString());
+    }
 }
