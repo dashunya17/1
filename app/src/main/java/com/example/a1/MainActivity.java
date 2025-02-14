@@ -1,8 +1,10 @@
 package com.example.a1;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,8 +24,54 @@ private Integer count =10;
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Toast.makeText(this, "onCreate",Toast.LENGTH_LONG).show();
     }
-
+   @Override
+   protected void onStart(){
+       super.onStart();
+       Log.d("Instens","onStart");
+       Toast.makeText(this, "onStart",Toast.LENGTH_LONG).show();
+   }
+    @Override
+    protected void onResume(){
+        super.onResume();
+        Log.d("Instens","onResume");
+        Toast.makeText(this, "onResume",Toast.LENGTH_LONG).show();
+    }
+    @Override
+    protected void onPause(){
+        super.onPause();
+        Log.d("Instens","onPause");
+        Toast.makeText(this, "onPause",Toast.LENGTH_LONG).show();
+    }
+    @Override
+    protected void onStop(){
+        super.onStop();
+        Log.d("Instens","onStop");
+        Toast.makeText(this, "onStop",Toast.LENGTH_LONG).show();
+    }
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        Log.d("Instens","onDestroy");
+        Toast.makeText(this, "onDestroy",Toast.LENGTH_LONG).show();
+    }
+    @Override
+    protected void onSaveInstanceState(Bundle autState){
+        super.onSaveInstanceState(autState);
+        autState.putInt("Klic", count);
+        Log.d("Instens","onSave");
+        Toast.makeText(this, "onSave",Toast.LENGTH_LONG).show();
+    }
+    @Override
+    protected void onRestoreInstanceState(Bundle SavedState){
+        super.onRestoreInstanceState(SavedState);
+        if(SavedState != null && SavedState.containsKey("Klic")){
+            count = SavedState.getInt("Klic");
+        }
+        Log.d("Instens","get");
+        Toast.makeText(this, "get",Toast.LENGTH_LONG).show();
+    }
     public void onClickBatton(View view){
         count++;
         TextView txt=findViewById(R.id.txtCounter);
